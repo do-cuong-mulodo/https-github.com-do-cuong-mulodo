@@ -1,0 +1,20 @@
+<!-- @Author: Cuong Do -->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<link th:href="@{/css/viewer.css}" rel="stylesheet">
+
+<body>
+	<h3>Welcome to viewer</h3>
+	<h5>You are logged via SSO. Your DashBoard is here.</h5>
+	<p>
+		UserID: <span th:text="${userid}">null</span>
+	</p>
+	<div>
+		<a th:href="@{/saml/logout?local=true}"> Local Session Logout </a>
+	</div>
+	<div>
+		<a th:href="@{/saml/logout}"> Global Logout </a>
+	</div>
+</body>
+</html>

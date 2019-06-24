@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.mulodo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+ext.versions = [
+    samlcore : "1.0.3.RELEASE"
+]
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+    compile('org.springframework.boot:spring-boot-starter-web')
+    
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+    compile group: 'org.springframework.security.extensions' , name: 'spring-security-saml2-core' , version : "${versions.samlcore}"
+
+    //Spring security
+    compile('org.springframework.boot:spring-boot-starter-security')
+}

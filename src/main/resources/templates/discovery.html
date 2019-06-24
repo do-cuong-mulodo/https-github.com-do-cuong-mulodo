@@ -1,0 +1,22 @@
+<!-- @Author: Cuong Do -->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<link th:href="@{/css/viewer.css}" rel="stylesheet">
+
+<body>
+	<h3>Welcome to viewer</h3>
+	<h5>Please Select one IdP</h5>
+	<form th:action="${idpDiscoReturnURL}" method="get">
+		<fieldset>
+			<div th:each="idp : ${idps}">
+				<label> <input type="radio" th:name="${idpDiscoReturnParam}"
+					th:id="'idp_' + ${idp}" th:value="${idp}" /> <span
+					th:text="${idp}">null</span>
+				</label>
+			</div>
+		</fieldset>
+		<button type="submit">SSO Login</button>
+	</form>
+</body>
+</html>
